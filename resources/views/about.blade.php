@@ -1,5 +1,5 @@
 <x-layout>
-	<h1 class="text-3xl font-medium title-font text-gray-900 mb-6 text-center">About us</h1>
+	<h1 class="text-3xl font-medium title-font text-gray-900 mb-6 text-center">{{__('about')}}</h1>
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">

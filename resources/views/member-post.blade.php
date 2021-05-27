@@ -1,17 +1,21 @@
 <x-layout>
+	@php
+	$dynamic_name = app()->getLocale() === "ar" ? $member->name_ar : $member->name;
+	$dynamic_about = app()->getLocale() === "ar" ? $member->about_ar : $member->about;
+	@endphp
 	<section class="text-gray-600 body-font overflow-hidden">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="lg:w-4/5 mx-auto flex flex-wrap">
 				<img alt="member-image" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="/storage/uploads/images/members/{{$member->image}}">
 				<div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-					<h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{$member->name}}</h1>
-					<p class="leading-relaxed">{{$member->about}}</p>
+					<h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{$dynamic_name}}</h1>
+					<p class="leading-relaxed">{{$dynamic_about}}</p>
 					<div class="flex md:inline-felx mt-6 leading-relaxed">
-						<a href="{{$member->cv_url}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">CV Link</button></a>
-						<a href="{{$member->staff_url}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">Staff Page</button></a>
+						<a href="{{$member->cv_url}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('cv_link')}}</button></a>
+						<a href="{{$member->staff_url}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('staff_page')}}</button></a>
 					</div>
 				</div>
-				<a href="/labs/{{$lab->slug}}/members" class="text-indigo-500 inline-flex items-center mt-4">Go back
+				<a href="/labs/{{$lab->slug}}/members" class="text-indigo-500 inline-flex items-center mt-4">{{__('go_back')}}
 					<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M26.105,21.891c-0.229,0-0.439-0.131-0.529-0.346l0,0c-0.066-0.156-1.716-3.857-7.885-4.59
 						  c-1.285-0.156-2.824-0.236-4.693-0.25v4.613c0,0.213-0.115,0.406-0.304,0.508c-0.188,0.098-0.413,0.084-0.588-0.033L0.254,13.815
