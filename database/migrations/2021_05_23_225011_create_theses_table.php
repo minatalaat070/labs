@@ -16,10 +16,14 @@ class CreateThesesTable extends Migration {
 			$table->id();
 			$table->foreignId("lab_id");
 			$table->string("title");
+			$table->string("title_ar");
 			$table->string("slug")->unique();
 			$table->string("author");
+			$table->string("author_ar");
 			$table->text("supervisors");
+			$table->text("supervisors_ar");
 			$table->text("about");
+			$table->text("about_ar");
 			$table->string("pdf_url");
 			$table->timestamp("awarded_at");
 			$table->timestamps();

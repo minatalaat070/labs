@@ -15,8 +15,11 @@ class CreateLabsTable extends Migration {
 		Schema::create('labs', function (Blueprint $table) {
 			$table->id();
 			$table->string("name");
+			$table->string("name_ar");
 			$table->string("slug")->unique();
 			$table->text("about");
+			$table->text("about_ar");
+			$table->string("image");
 			$table->timestamps();
 		});
 	}

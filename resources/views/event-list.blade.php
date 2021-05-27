@@ -1,11 +1,12 @@
 <x-layout>
+	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Events</h1>
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="flex flex-wrap -m-4">
 				@foreach($events as $event)
 				<div class="p-4 md:w-1/3">
 					<div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-						<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog">
+						<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="/storage/uploads/images/events/{{$event->image}}" alt="blog">
 						<div class="p-6">
 							<!--							<h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>-->
 							<h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$event->name}}</h1>

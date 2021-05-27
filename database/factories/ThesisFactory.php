@@ -21,15 +21,20 @@ class ThesisFactory extends Factory {
 	 * @return array
 	 */
 	public function definition() {
+		$faker_ar = \Faker\Factory::create('ar_SA');
 		return [
-			'title' => $this->faker->sentence,
+			'title' => $this->faker->sentence(),
+			'title_ar' => $faker_ar->sentence(),
 			'lab_id' => Lab::factory(),
-			'slug' => $this->faker->unique()->slug,
-			'author' => $this->faker->name,
-			'supervisors' => $this->faker->name,
-			'pdf_url' => $this->faker->url,
-			'about' => $this->faker->paragraph,
-			'awarded_at' => $this->faker->dateTime
+			'slug' => $this->faker->unique()->slug(),
+			'author' => $this->faker->name(),
+			'author_ar' => $faker_ar->name(),
+			'supervisors' => $this->faker->name(),
+			'supervisors_ar' => $faker_ar->name(),
+			'pdf_url' => $this->faker->url(),
+			'about' => $this->faker->paragraph(), 
+			'about_ar' => $faker_ar->paragraph(),
+			'awarded_at' => $this->faker->dateTime()
 		];
 	}
 

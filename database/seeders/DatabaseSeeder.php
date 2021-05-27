@@ -19,42 +19,14 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run() {
 		// \App\Models\User::factory(10)->create();
-		$lab1 = Lab::factory()->create();
-		Device::factory(10)->create(['lab_id' => $lab1->id]);
-		Member::factory(10)->create(['lab_id' => $lab1->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab1->id]);
-		Research::factory(10)->create(['lab_id' => $lab1->id]);
-		$lab2 = Lab::factory()->create();
-		Device::factory(10)->create(['lab_id' => $lab2->id]);
-		Member::factory(10)->create(['lab_id' => $lab2->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab2->id]);
-		Research::factory(10)->create(['lab_id' => $lab2->id]);
-		$lab3 = Lab::factory()->create();
-		Device::factory(10)->create(['lab_id' => $lab3->id]);
-		Member::factory(10)->create(['lab_id' => $lab3->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab3->id]);
-		Research::factory(10)->create(['lab_id' => $lab3->id]);
-		$lab4 = Lab::factory()->create();
-		Device::factory(10)->create(['lab_id' => $lab4->id]);
-		Member::factory(10)->create(['lab_id' => $lab4->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab4->id]);
-		Research::factory(10)->create(['lab_id' => $lab4->id]);
-		$lab5 = Lab::factory()->create();
-		Device::factory(10)->create(['lab_id' => $lab5->id]);
-		Member::factory(10)->create(['lab_id' => $lab5->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab5->id]);
-		Research::factory(10)->create(['lab_id' => $lab5->id]);
-		$lab6 = Lab::factory()->create();
-		Device::factory(10)->create(['lab_id' => $lab6->id]);
-		Member::factory(10)->create(['lab_id' => $lab6->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab6->id]);
-		Research::factory(10)->create(['lab_id' => $lab6->id]);
-		$lab7 = Lab::factory()->create();Device::factory(10)->create(['lab_id' => $lab1->id]);
-		Member::factory(10)->create(['lab_id' => $lab7->id]);
-		Thesis::factory(10)->create(['lab_id' => $lab7->id]);
-		Research::factory(10)->create(['lab_id' => $lab7->id]);
+		for ($index = 0; $index < 7; $index++) {
+			$lab = Lab::factory()->create();
+			Device::factory(10)->create(['lab_id' => $lab->id]);
+			Member::factory(10)->create(['lab_id' => $lab->id]);
+			Thesis::factory(10)->create(['lab_id' => $lab->id]);
+			Research::factory(10)->create(['lab_id' => $lab->id]);
+		}
 		Event::factory(20)->create();
-		
 	}
 
 }

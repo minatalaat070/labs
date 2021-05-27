@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-	return view('welcome', ["lab" => Lab::all()->random(1)->take(1)[0]]);
+	return view('welcome', ["lab" => Lab::all()->random(1)->take(1)[0],"event"=> Event::all()->random(1)->take(1)[0]]);
 });
 
 Route::get('labs', function () {
@@ -82,14 +82,13 @@ Route::get('events/{event:slug}', function (Event $event) {
 	return view('event-post', ["event" => $event]);
 });
 
-Route::get('contactus', function(){
+Route::get('contactus', function () {
 	return view('contactus');
 });
 
-Route::get('about', function(){
+Route::get('about', function () {
 	return view('about');
 });
-
 
 Route::get('/dashboard', function () {
 	return view('admin.dashboard');

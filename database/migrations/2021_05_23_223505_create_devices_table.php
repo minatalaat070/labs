@@ -16,9 +16,11 @@ class CreateDevicesTable extends Migration {
 			$table->id();
 			$table->foreignId("lab_id");
 			$table->string("name");
+			$table->string("name_ar");
 			$table->string("slug")->unique();
 			$table->string("image");
 			$table->text("description");
+			$table->text("description_ar");
 			$table->timestamps();
 		});
 	}

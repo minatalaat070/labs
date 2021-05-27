@@ -21,14 +21,17 @@ class MemberFactory extends Factory {
 	 * @return array
 	 */
 	public function definition() {
+		$faker_ar = \Faker\Factory::create('ar_SA');
 		return [
 			'name' => $this->faker->word(),
+			'name_ar' => $faker_ar->word(),
 			'lab_id' => Lab::factory(),
-			'user_name' => $this->faker->unique()->userName,
-			'about' => $this->faker->paragraph,
-			'image' => $this->faker->url,
-			'cv_url' => $this->faker->url,
-			'staff_url' => $this->faker->url,
+			'user_name' => $this->faker->unique()->userName(),
+			'about' => $this->faker->paragraph(),
+			'about_ar' => $faker_ar->paragraph(),
+			'image' => $this->faker->image(public_path("storage/uploads/images/members"), 640, 480, null,  false),
+			'cv_url' => $this->faker->url(),
+			'staff_url' => $this->faker->url(),
 		];
 	}
 

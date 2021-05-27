@@ -16,8 +16,10 @@ class CreateMembersTable extends Migration {
 			$table->id();
 			$table->foreignId("lab_id");
 			$table->string("name");
+			$table->string("name_ar");
 			$table->string("user_name")->unique();
-			$table->text('about');
+			$table->text("about");
+			$table->text("about_ar");
 			$table->string("image");
 			$table->string("cv_url", 2038);
 			$table->string("staff_url", 2038);

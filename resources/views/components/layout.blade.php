@@ -4,6 +4,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Physics Dep Labs</title>
 		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+		<link rel="manifest" href="/site.webmanifest"/>
 	</head>
 	<header class="text-gray-600 body-font">
 		<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -23,7 +27,7 @@
 			<div class="flex md:inline-felx">
 				<button class="flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">En</button>
 				<br class="ml-4 mr-4"><!-- comment -->
-				<a href="/dashboard"><button class="flex items-center bg-indigo-500 text-white border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 hover:text-black rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">Dashboard</button></a>
+					<a href="/dashboard"><button class="flex items-center bg-indigo-500 text-white border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 hover:text-black rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">Dashboard</button></a>
 			</div>
 		</div>
 	</header>
