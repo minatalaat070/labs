@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LabController;
 use App\Http\Middleware\SetDefaultLocaleForUrls;
 use App\Models\Device;
 use App\Models\Event;
@@ -24,6 +25,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 	return view('welcome', ["lab" => Lab::all()->random(1)->take(1)[0], "event" => Event::all()->random(1)->take(1)[0]]);
 });
+
+Route::get('/dashboard', function () {
+	return view('admin.dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/labs', function () {
+	return view('admin.list-labs', ['labs' => Lab::all()]);
+})->middleware(['auth'])->name('dashboard-list-labs');
+require __DIR__ . '/auth.php';
+
+Route::get("create-lab", function () {
+	return view('admin.create-lab');
+})->middleware(["auth"])->name("create-lab");
+
+Route::post("create-lab", [LabController::class, 'store'])->middleware(["auth"]);
 
 Route::get('labs', function () {
 	return view('lab-list', ["labs" => Lab::all()]);
@@ -93,8 +109,3 @@ Route::post("{locale}", function ($locale) {
 	}
 })->middleware(SetDefaultLocaleForUrls::class)->name("locale.setting");
 
-Route::get('/dashboard', function () {
-	return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__ . '/auth.php';

@@ -5349,16 +5349,16 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "322d60b8dfe452c807f01524ce0f6a76a985f72d"
+                "reference": "40444821ebfc781b91281048e18f06193d388f4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/322d60b8dfe452c807f01524ce0f6a76a985f72d",
-                "reference": "322d60b8dfe452c807f01524ce0f6a76a985f72d",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/40444821ebfc781b91281048e18f06193d388f4a",
+                "reference": "40444821ebfc781b91281048e18f06193d388f4a",
                 "shasum": ""
             },
             "require": {
@@ -5402,7 +5402,7 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2021-05-20T13:41:13+00:00"
+            "time": "2021-05-25T16:27:09+00:00"
         },
         {
             "name": "laravel/sail",

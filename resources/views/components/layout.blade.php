@@ -36,6 +36,9 @@
 			</div>
 		</div>
 	</header>
+	@php
+	$isAr = app()->getLocale()==="ar";
+	@endphp
 	<body>
 		<!-- dummy script for preventing browser flashing -->
 		<script>0</script>

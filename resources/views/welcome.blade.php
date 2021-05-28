@@ -49,11 +49,16 @@
 								</div>
 							</div>
 							<div class="p-4 md:w-1/3">
-								<div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-									@php
-									
+								@php
+								$hasDevice = false;
+								if($lab->devices->count() > 0 ){
 									$device = $lab->devices->random(1)->take(1)[0];
-									@endphp
+									$hasDevice = true;
+								}
+								@endphp
+								@if($hasDevice)
+								<div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+
 									<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="/storage/uploads/images/devices/{{$device->image}}" alt="blog">
 									<div class="p-6">
 										<h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{__('device')}}</h2>
@@ -69,6 +74,7 @@
 										</div>
 									</div>
 								</div>
+								@endif
 							</div>
 						</div>
 					</div>
