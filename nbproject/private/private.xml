@@ -4,16 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/mina/laravel-projects/labs/resources/views/thesis-list.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_223930_create_members_table.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/thesis-post.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/factories/EventFactory.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/research-list.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/factories/LabFactory.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/factories/ThesisFactory.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/device-post.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/lang/en.json</file>
             <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_222624_create_labs_table.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/welcome.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/seeders/DatabaseSeeder.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/device-list.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/lang/ar.json</file>
             <file>file:/home/mina/laravel-projects/labs/database/factories/ResearchFactory.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/member-list.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/app/Models/Member.php</file>
@@ -24,11 +26,11 @@
             <file>file:/home/mina/laravel-projects/labs/app/Models/Lab.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/member-post.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/app/Models/Research.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/layout.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/event-post.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_225011_create_theses_table.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/factories/MemberFactory.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/lab-list.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/research-post.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/routes/web.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/components/label.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/lab-post.blade.php</file>

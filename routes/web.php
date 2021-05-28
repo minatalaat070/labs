@@ -81,10 +81,16 @@ Route::get('about', function () {
 	return view('about');
 });
 
-Route::post("{locale}", function ($locale) {	
-	app()->setLocale($locale);
-	session()->put('locale', $locale);
-	return redirect()->back();
+Route::post("{locale}", function ($locale) {
+	if (!in_array($locale, config("app.locales"))) {
+		app()->setLocale(config("app.fallback_locale"));
+		session()->put('locale', config("app.fallback_locale"));
+		return redirect()->back();
+	} else {
+		app()->setLocale($locale);
+		session()->put('locale', $locale);
+		return redirect()->back();
+	}
 })->middleware(SetDefaultLocaleForUrls::class)->name("locale.setting");
 
 Route::get('/dashboard', function () {

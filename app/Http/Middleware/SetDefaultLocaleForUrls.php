@@ -18,7 +18,9 @@ class SetDefaultLocaleForUrls {
 	public function handle(Request $request, Closure $next) {
 		if (session()->has('locale')) {
 			app()->setLocale(session('locale'));
-			app()->setLocale(config('app.locale'));
+		} else {
+			//dd(config('app.fallback_locale'));
+			app()->setLocale(config('app.fallback_locale'));
 		}
 		return $next($request);
 	}
