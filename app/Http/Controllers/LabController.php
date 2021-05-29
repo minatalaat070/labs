@@ -42,7 +42,7 @@ class LabController extends Controller {
 	}
 
 	function edit(Lab $lab) {
-		return view('admin.edit-lab', ['lab' => $lab]);
+		return view('admin.lab.edit-lab', ['lab' => $lab]);
 	}
 
 	function update($id, Request $req) {

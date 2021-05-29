@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LabController;
+use App\Http\Controllers\MemberController;
 use App\Http\Middleware\SetDefaultLocaleForUrls;
 use App\Models\Device;
 use App\Models\Event;
@@ -31,19 +33,43 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard/labs', function () {
-	return view('admin.list-labs', ['labs' => Lab::all()]);
-})->middleware(['auth'])->name('dashboard-list-labs');
+	return view('admin.lab.list-labs', ['labs' => Lab::all()]);
+})->middleware(['auth'])->name('dashboard_list_labs');
 require __DIR__ . '/auth.php';
 
-Route::get("create-lab", function () {
-	return view('admin.create-lab');
-})->middleware(["auth"])->name("create-lab");
-
-Route::post("create-lab", [LabController::class, 'store'])->middleware(["auth"])->name("create_lab");
+Route::get("/dashboard/create-lab", function () {
+	return view('admin.lab.create-lab');
+})->middleware(["auth"])->name("create_lab");
+Route::post("/dashboard/create-lab", [LabController::class, 'store'])->middleware(["auth"]);
 Route::get("/dashboard/edit-lab/{lab:slug}", [LabController::class, 'edit'])->middleware(["auth"])->name("edit_lab");
 Route::post("/dashboard/edit-lab/{id}", [LabController::class, 'update'])->middleware("auth")->name("update_lab");
 Route::post("/dashboard/delete-lab/{id}", [LabController::class, 'delete'])->middleware(["auth"])->name("delete_lab");
 
+// device crud routes
+Route::get("/dashboard/devices", function () {
+	return view("admin.device.list-devices", ["devices" => Device::with("lab")->get()]);
+})->middleware("auth")->name("dashborad_list_devices");
+Route::get("/dashboard/create-device", function () {
+	return view("admin.device.create-device", ["labs" => Lab::all()]);
+})->middleware(["auth"])->name("create_device");
+Route::post("/dashboard/create-device", [DeviceController::class, 'store'])->middleware(["auth"]);
+Route::get("/dashboard/edit-device/{device:slug}", [DeviceController::class, 'edit'])->middleware(["auth"])->name("edit_device");
+Route::post("/dashboard/edit-device/{id}", [DeviceController::class, 'update'])->middleware("auth")->name("update_device");
+Route::post("/dashboard/delete-device/{id}", [DeviceController::class, 'delete'])->middleware(["auth"])->name("delete_device");
+
+// member crud routes
+Route::get("/dashboard/members", function () {
+	return view("admin.member.list-members", ["members" => Member::with("lab")->get()]);
+})->middleware("auth")->name("dashborad_list_members");
+Route::get("/dashboard/create-member", function () {
+	return view("admin.member.create-member", ["labs" => Lab::all()]);
+})->middleware(["auth"])->name("create_member");
+Route::post("/dashboard/create-member", [MemberController::class, 'store'])->middleware(["auth"]);
+Route::get("/dashboard/edit-member/{member:user_name}", [MemberController::class, 'edit'])->middleware(["auth"])->name("edit_member");
+Route::post("/dashboard/edit-member/{id}", [MemberController::class, 'update'])->middleware("auth")->name("update_member");
+Route::post("/dashboard/delete-member/{id}", [MemberController::class, 'delete'])->middleware(["auth"])->name("delete_member");
+
+// without Auth
 Route::get('labs', function () {
 	return view('lab-list', ["labs" => Lab::all()]);
 });

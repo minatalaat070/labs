@@ -44,5 +44,16 @@
     "select_photo": "Select Photo",
     "create": "Create",
     "add": "Add",
-    "edit_lab":"Edit Lab"
+    "edit_lab": "Edit Lab",
+    "devices": "Devices",
+    "device_name": "Device Name",
+    "belongs_to_lab": "Belongs To Lab",
+    "device_description": "Device Description",
+    "create_device": "Create Device",
+    "description_in_arabic": "Description in Arabic",
+    "description_in_english": "Description in English",
+    "edit_device": "Edit Device",
+    "members": "Members",
+    "member_name": "Member Name",
+    "member_about": "About Member"
 }

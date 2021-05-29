@@ -44,5 +44,16 @@
     "select_photo": "إختيار صورة",
     "create": "إنشاء",
     "add": "إضافة",
-    "edit_lab": "تعديل المعمل"
+    "edit_lab": "تعديل المعمل",
+    "devices": "الأجهزة",
+    "device_name": "اسم الجهاز",
+    "belongs_to_lab": "يوجد فى معمل",
+    "device_description": "وصف الجهاز",
+    "create_device": "إضافة جهاز",
+    "description_in_arabic": "الوصف بالعربية",
+    "description_in_english": "الوصف بالإنجليزية",
+    "edit_device": "تعديل الجهاز",
+    "members":"الأعضاء",
+    "member_name":"إسم العضو",
+    "member_about":"حول العضو"
 }
