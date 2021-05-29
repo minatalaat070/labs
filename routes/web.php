@@ -39,7 +39,10 @@ Route::get("create-lab", function () {
 	return view('admin.create-lab');
 })->middleware(["auth"])->name("create-lab");
 
-Route::post("create-lab", [LabController::class, 'store'])->middleware(["auth"]);
+Route::post("create-lab", [LabController::class, 'store'])->middleware(["auth"])->name("create_lab");
+Route::get("/dashboard/edit-lab/{lab:slug}", [LabController::class, 'edit'])->middleware(["auth"])->name("edit_lab");
+Route::post("/dashboard/edit-lab/{id}", [LabController::class, 'update'])->middleware("auth")->name("update_lab");
+Route::post("/dashboard/delete-lab/{id}", [LabController::class, 'delete'])->middleware(["auth"])->name("delete_lab");
 
 Route::get('labs', function () {
 	return view('lab-list', ["labs" => Lab::all()]);

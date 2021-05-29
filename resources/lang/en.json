@@ -43,5 +43,6 @@
     "upload_photo": "Upload Photo",    
     "select_photo": "Select Photo",
     "create": "Create",
-    "add": "Add"
+    "add": "Add",
+    "edit_lab":"Edit Lab"
 }

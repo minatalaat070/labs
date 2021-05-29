@@ -14,7 +14,7 @@ class CreateResearchTable extends Migration {
 	public function up() {
 		Schema::create('research', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId("lab_id");
+			$table->foreignId("lab_id")->constrained()->onDelete('cascade')->onUpdate('cascade');
 			$table->string("name");
 			$table->string("name_ar");
 			$table->string("slug")->unique();

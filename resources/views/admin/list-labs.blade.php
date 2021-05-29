@@ -55,8 +55,16 @@
 					<td class="p-2 border-r">{{$lab->theses->count()}}</td>
 					<td class="p-2 border-r">{{$lab->research->count()}}</td>
 					<td>
-						<a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">{{__("edit")}}</a>
-						<a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">{{__("delete")}}</a>
+						<div class="inline-flex">
+							<form action="{{route("edit_lab",$lab->slug)}}" action="GET" class="my-4 mr-2 ml-4">
+								@csrf
+								<button type="submit"  class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">{{__("edit")}}</button>
+							</form>
+							<form  class="my-4 mr-4 ml-2" method="POST" action="{{route("delete_lab",$lab->id)}}">
+								@csrf
+								<button type="submit" onclick="return confirm('Are you sure?')" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">{{__("delete")}}</button>
+							</form>
+						</div>
 					</td>
 				</tr>
 				@endforeach

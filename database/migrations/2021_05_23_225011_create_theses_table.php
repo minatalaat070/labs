@@ -14,7 +14,7 @@ class CreateThesesTable extends Migration {
 	public function up() {
 		Schema::create('theses', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId("lab_id");
+			$table->foreignId("lab_id")->constrained()->onDelete('cascade')->onUpdate('cascade');
 			$table->string("title");
 			$table->string("title_ar");
 			$table->string("slug")->unique();
