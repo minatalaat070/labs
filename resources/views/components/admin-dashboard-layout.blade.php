@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Admin Dashboard</title>
-		<meta name="author" content="David Grzyb">
-		<meta name="description" content="">
-
-		<!-- Tailwind -->
-		<link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{{__('dashboard')}}</title>
+		<meta name="author" content="David Grzyb"/>
+		<meta name="description" content=""/>
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('css/font.css') }}" rel="stylesheet"/>
 		<style>
-			@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 			.font-family-karla { font-family: karla; }
 			.bg-sidebar { background: #3d68ff; }
 			.cta-btn { color: #3d68ff; }
@@ -23,43 +21,48 @@
 	</head>
 	<body class="bg-gray-100 font-family-karla flex">
 		<script>0</script>
+
 		<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
 			<div class="p-6">
-				<a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
-				<a href="{{route("create_lab")}}">
+				<a href="{{route('dashboard')}}" class="text-white text-3xl font-semibold uppercase">Admin</a>
+				<a href="{{route('create_lab')}}">
 					<button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
 						<i class="fas fa-plus mr-3"></i> {{__('create_lab')}}
 					</button>
 				</a>
 			</div>
 			<nav class="text-white text-base font-semibold pt-3">
-				<a href="index.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
-					<i class="fas fa-tachometer-alt mr-3"></i>
-					Dashboard
+				<a href="{{route('dashboard')}}" class="flex items-center {{$name=="stats"?"active-nav-link":""}} text-white py-4 pl-6 nav-item">
+					<i class="fas fa-chart-pie -alt mr-3"></i>
+					{{__('statistics')}}
 				</a>
 				<!--				<a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 									<i class="fas fa-sticky-note mr-3"></i>
 									Blank Page
 								</a>-->
-				<a href="{{route('dashboard_list_labs')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+				<a href="{{route('dashboard_list_labs')}}" class="flex items-center text-white {{$name=="labs"?"active-nav-link":""}} opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 					<i class="fas fa-table mr-3"></i>
 					{{__('labs')}}
 				</a>
-				<a href="{{route('dashborad_list_devices')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-					<i class="fas fa-tablet-alt mr-3"></i>
+				<a href="{{route('dashborad_list_devices')}}" class="flex items-center text-white {{$name=="devices"?"active-nav-link":""}} opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i class="fas fa-microscope mr-3"></i>
 					{{__('devices')}}
 				</a>
-				<a href="{{route('dashborad_list_members')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+				<a href="{{route('dashborad_list_members')}}" class="flex items-center text-white {{$name=="members"?"active-nav-link":""}} opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 					<i class="fas fa-user mr-3"></i>
 					{{__('members')}}
 				</a>
-				<a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+				<a href="{{route('dashborad_list_theses')}}" class="flex items-center text-white {{$name=="theses"?"active-nav-link":""}} opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 					<i class="fas fa-align-left mr-3"></i>
-					Forms
+					{{__('theses')}}
 				</a>
-				<a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-					<i class="fas fa-calendar mr-3"></i>
-					Calendar
+				<a href="{{route('dashborad_list_research')}}" class="flex items-center text-white {{$name=="research"?"active-nav-link":""}}  opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i class="fas fa-file-alt mr-3"></i>
+					{{__('research')}}
+				</a>
+				<a href="{{route('dashborad_list_events')}}" class="flex items-center text-white  {{$name=="events"?"active-nav-link":""}}  opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i class="fas fa-calendar-alt mr-3"></i>
+					{{__('events')}}
 				</a>
 			</nav>
 			<!--			<a href="#" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
@@ -70,7 +73,13 @@
 
 		<div class="w-full flex flex-col h-screen overflow-y-auto">
 			<!-- Desktop Header -->
-			<header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+			<header class="w-full items-center bg-white py-2 px-6 hidden sm:flex ">
+				<form action="{{route('locale.setting', app()->getLocale()==="ar"?"en":"ar",false)}}" method="POST">
+					@csrf
+					<button submit="button" name="button" class="flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">
+						{{app()->getLocale() === "ar"? "En":"Ar"}}
+					</button>
+				</form>
 				<div class="w-1/2"></div>
 				<div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
 					<button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
@@ -80,7 +89,10 @@
 					<div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
 						<a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
 						<a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
-						<a href="#" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+						<form action="{{route('logout')}}" method="POST"  class="block px-4 py-2 account-link hover:text-white" >
+							@csrf
+							<input type="submit" value="Log out"/>
+						</form>
 					</div>
 				</div>
 			</header>
@@ -88,7 +100,7 @@
 			<!-- Mobile Header & Nav -->
 			<header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
 				<div class="flex items-center justify-between">
-					<a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
+					<a href="" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
 					<button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
 						<i x-show="!isOpen" class="fas fa-bars"></i>
 						<i x-show="isOpen" class="fas fa-times"></i>
@@ -97,41 +109,33 @@
 
 				<!-- Dropdown Nav -->
 				<nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-					<a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
-						<i class="fas fa-tachometer-alt mr-3"></i>
-						Dashboard
+					<a href="{{route('dashboard')}}" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+						<i class="fas fa-chart-pie mr-3"></i>
+						{{__('statistics')}}
 					</a>
-					<a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-						<i class="fas fa-sticky-note mr-3"></i>
-						Blank Page
-					</a>
-					<a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+					<a href="{{route('dashboard_list_labs')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-table mr-3"></i>
-						Tables
+						{{__('labs')}}
 					</a>
-					<a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+					<a href="{{route('dashborad_list_devices')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-align-left mr-3"></i>
-						Forms
+						{{__('devices')}}
 					</a>
-					<a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+					<a href="{{route('dashborad_list_members')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-tablet-alt mr-3"></i>
-						Tabbed Content
+						{{__('members')}}
 					</a>
-					<a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+					<a href="{{route('dashborad_list_theses')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-calendar mr-3"></i>
-						Calendar
+						{{__('theses')}}
 					</a>
 					<a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-cogs mr-3"></i>
 						Support
 					</a>
-					<a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-						<i class="fas fa-user mr-3"></i>
-						My Account
-					</a>
-					<a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+					<a href="{{route('logout')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-sign-out-alt mr-3"></i>
-						Sign Out
+						Log Out
 					</a>
 					<button class="w-full bg-white cta-btn font-semibold py-2 mt-3 rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
 						<i class="fas fa-arrow-circle-up mr-3"></i> Upgrade to Pro!
@@ -144,94 +148,15 @@
 
 			{{$slot}}
 			<footer class="w-full bg-white text-right p-4">
-				Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
+				<!--Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.-->
+				Built by <a target="_blank" href="" class="underline">CS 4th Year Students</a>.
+
 			</footer>
 
 		</div>
 
 		<!-- AlpineJS -->
-		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-		<!-- Font Awesome -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-		<!-- ChartJS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+		<script src="{{mix('js/app.js')}}" defer></script>
 
-		<script>
-            var chartOne = document.getElementById('chartOne');
-            var myChart = new Chart(chartOne, {
-                type: 'bar',
-                data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                    }
-                }
-            });
-
-            var chartTwo = document.getElementById('chartTwo');
-            var myLineChart = new Chart(chartTwo, {
-                type: 'line',
-                data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                    }
-                }
-            });
-		</script>
 	</body>
 </html>

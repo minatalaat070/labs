@@ -33,4 +33,7 @@
 			</div>
 		</div>
 	</section>
+	<div class="mx-20">
+		{{$labs->links()}}
+	</div>
 </x-layout>

@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ResearchController;
+use App\Http\Controllers\ThesisController;
 use App\Http\Middleware\SetDefaultLocaleForUrls;
 use App\Models\Device;
 use App\Models\Event;
@@ -23,17 +26,22 @@ use Illuminate\Support\Facades\Route;
   |
  */
 
-
 Route::get('/', function () {
 	return view('welcome', ["lab" => Lab::all()->random(1)->take(1)[0], "event" => Event::all()->random(1)->take(1)[0]]);
 });
 
 Route::get('/dashboard', function () {
-	return view('admin.dashboard');
+	return view('admin.dashboard', [
+"labs_count" => Lab::all()->count(),
+ "devices_count" => Device::all()->count(),
+ "members_count" => Member::all()->count(),
+ "theses_count" => Thesis::all()->count(),
+ "research_count" => Research::all()->count(),
+ "events_count" => Event::all()->count()]);
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard/labs', function () {
-	return view('admin.lab.list-labs', ['labs' => Lab::all()]);
+	return view('admin.lab.list-labs', ['labs' => Lab::with(['members', 'devices', 'theses', 'research'])->paginate()]);
 })->middleware(['auth'])->name('dashboard_list_labs');
 require __DIR__ . '/auth.php';
 
@@ -47,7 +55,7 @@ Route::post("/dashboard/delete-lab/{id}", [LabController::class, 'delete'])->mid
 
 // device crud routes
 Route::get("/dashboard/devices", function () {
-	return view("admin.device.list-devices", ["devices" => Device::with("lab")->get()]);
+	return view("admin.device.list-devices", ["devices" => Device::with("lab")->paginate()]);
 })->middleware("auth")->name("dashborad_list_devices");
 Route::get("/dashboard/create-device", function () {
 	return view("admin.device.create-device", ["labs" => Lab::all()]);
@@ -59,7 +67,7 @@ Route::post("/dashboard/delete-device/{id}", [DeviceController::class, 'delete']
 
 // member crud routes
 Route::get("/dashboard/members", function () {
-	return view("admin.member.list-members", ["members" => Member::with("lab")->get()]);
+	return view("admin.member.list-members", ["members" => Member::with("lab")->paginate()]);
 })->middleware("auth")->name("dashborad_list_members");
 Route::get("/dashboard/create-member", function () {
 	return view("admin.member.create-member", ["labs" => Lab::all()]);
@@ -69,9 +77,45 @@ Route::get("/dashboard/edit-member/{member:user_name}", [MemberController::class
 Route::post("/dashboard/edit-member/{id}", [MemberController::class, 'update'])->middleware("auth")->name("update_member");
 Route::post("/dashboard/delete-member/{id}", [MemberController::class, 'delete'])->middleware(["auth"])->name("delete_member");
 
+//Theses CRUD routes
+Route::get("/dashboard/theses", function () {
+	return view("admin.thesis.list-theses", ["theses" => Thesis::with("lab")->paginate()]);
+})->middleware("auth")->name("dashborad_list_theses");
+Route::get("/dashboard/create-thesis", function () {
+	return view("admin.thesis.create-thesis", ["labs" => Lab::all()]);
+})->middleware(["auth"])->name("create_thesis");
+Route::post("/dashboard/create-thesis", [ThesisController::class, 'store'])->middleware(["auth"]);
+Route::get("/dashboard/edit-thesis/{thesis:slug}", [ThesisController::class, 'edit'])->middleware(["auth"])->name("edit_thesis");
+Route::post("/dashboard/edit-thesis/{id}", [ThesisController::class, 'update'])->middleware("auth")->name("update_thesis");
+Route::post("/dashboard/delete-thesis/{id}", [ThesisController::class, 'delete'])->middleware(["auth"])->name("delete_thesis");
+
+// Research CRUD routes
+Route::get("/dashboard/research", function () {
+	return view("admin.research.list-research", ["research" => Research::with("lab")->paginate()]);
+})->middleware("auth")->name("dashborad_list_research");
+Route::get("/dashboard/create-research", function () {
+	return view("admin.research.create-research", ["labs" => Lab::all()]);
+})->middleware(["auth"])->name("create_research");
+Route::post("/dashboard/create-research", [ResearchController::class, 'store'])->middleware(["auth"]);
+Route::get("/dashboard/edit-research/{research:slug}", [ResearchController::class, 'edit'])->middleware(["auth"])->name("edit_research");
+Route::post("/dashboard/edit-research/{id}", [ResearchController::class, 'update'])->middleware("auth")->name("update_research");
+Route::post("/dashboard/delete-research/{id}", [ResearchController::class, 'delete'])->middleware(["auth"])->name("delete_research");
+
+// Events CRUD routes
+Route::get("/dashboard/events", function () {
+	return view("admin.event.list-events", ["events" => Event::query()->paginate()]);
+})->middleware("auth")->name("dashborad_list_events");
+Route::get("/dashboard/create-event", function () {
+	return view("admin.event.create-event");
+})->middleware(["auth"])->name("create_event");
+Route::post("/dashboard/create-event", [EventController::class, 'store'])->middleware(["auth"]);
+Route::get("/dashboard/edit-event/{event:slug}", [EventController::class, 'edit'])->middleware(["auth"])->name("edit_event");
+Route::post("/dashboard/edit-event/{id}", [EventController::class, 'update'])->middleware("auth")->name("update_event");
+Route::post("/dashboard/delete-event/{id}", [EventController::class, 'delete'])->middleware(["auth"])->name("delete_event");
+
 // without Auth
 Route::get('labs', function () {
-	return view('lab-list', ["labs" => Lab::all()]);
+	return view('lab-list', ["labs" => Lab::query()->paginate(9)]);
 });
 
 Route::get('labs/{lab:slug}', function (Lab $lab) {
@@ -79,7 +123,7 @@ Route::get('labs/{lab:slug}', function (Lab $lab) {
 });
 
 Route::get('labs/{lab:slug}/members', function (Lab $lab) {
-	return view('member-list', ["lab" => $lab, "members" => $lab->members]);
+	return view('member-list', ["lab" => $lab, "members" => $lab->members()->paginate(9)]);
 });
 
 Route::get('labs/{lab:slug}/members/{member:user_name}', function (Lab $lab, Member $member) {
@@ -87,7 +131,7 @@ Route::get('labs/{lab:slug}/members/{member:user_name}', function (Lab $lab, Mem
 });
 
 Route::get('labs/{lab:slug}/devices', function (Lab $lab) {
-	return view('device-list', ["lab" => $lab, "devices" => $lab->devices]);
+	return view('device-list', ["lab" => $lab, "devices" => $lab->devices()->paginate(9)]);
 });
 
 Route::get('labs/{lab:slug}/devices/{device:slug}', function (Lab $lab, Device $device) {
@@ -95,7 +139,7 @@ Route::get('labs/{lab:slug}/devices/{device:slug}', function (Lab $lab, Device $
 });
 
 Route::get('labs/{lab:slug}/research', function (Lab $lab) {
-	return view('research-list', ["lab" => $lab, "research" => $lab->research]);
+	return view('research-list', ["lab" => $lab, "research" => $lab->research()->paginate(5)]);
 });
 
 Route::get('labs/{lab:slug}/research/{research:slug}', function (Lab $lab, Research $research) {
@@ -103,7 +147,7 @@ Route::get('labs/{lab:slug}/research/{research:slug}', function (Lab $lab, Resea
 });
 
 Route::get('labs/{lab:slug}/theses', function (Lab $lab) {
-	return view('thesis-list', ["lab" => $lab, "theses" => $lab->theses]);
+	return view('thesis-list', ["lab" => $lab, "theses" => $lab->theses()->paginate(5)]);
 });
 
 Route::get('labs/{lab:slug}/theses/{thesis:slug}', function (Lab $lab, Thesis $thesis) {
@@ -111,7 +155,7 @@ Route::get('labs/{lab:slug}/theses/{thesis:slug}', function (Lab $lab, Thesis $t
 });
 
 Route::get('events', function () {
-	return view('event-list', ["events" => Event::all()]);
+	return view('event-list', ["events" => Event::query()->paginate()]);
 });
 
 Route::get('events/{event:slug}', function (Event $event) {

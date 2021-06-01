@@ -11,7 +11,7 @@
 					<h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{$dynamic_name}}</h1>
 					<p class="leading-relaxed">{{$dynamic_about}}</p>
 					<div class="flex md:inline-felx mt-6 leading-relaxed">
-						<a href="{{$member->cv_url}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('cv_link')}}</button></a>
+						<a href="/storage/uploads/cvs/{{$member->cv_file}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('cv_link')}}</button></a>
 						<a href="{{$member->staff_url}}"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('staff_page')}}</button></a>
 					</div>
 				</div>

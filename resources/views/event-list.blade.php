@@ -31,4 +31,7 @@
 			</div>
 		</div>
 	</section>
+	<div class="mx-20">
+		{{$events->links()}}
+	</div>
 </x-layout>

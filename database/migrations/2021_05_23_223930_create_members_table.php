@@ -21,7 +21,7 @@ class CreateMembersTable extends Migration {
 			$table->text("about");
 			$table->text("about_ar");
 			$table->string("image");
-			$table->string("cv_url", 2038);
+			$table->string("cv_file", 2038);
 			$table->string("staff_url", 2038);
 			$table->timestamps();
 		});

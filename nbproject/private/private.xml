@@ -2,34 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/list-labs.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/factories/LabFactory.php</file>
-            <file>file:/home/mina/laravel-projects/labs/routes/auth.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/dashboard.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/Auth/RegisteredUserController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/device-post.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/en.json</file>
-            <file>file:/home/mina/laravel-projects/labs/storage/app/app/public/uploads/images/labs/1622230838unnamed.JPG</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/auth/register.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_222624_create_labs_table.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/welcome.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/dashboard.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/ar.json</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/Auth/VerifyEmailController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/admin-dashboard-layout.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/storage/app/home/mina/laravel-projects/labs/public/storage/uploads/images/labs/1622227851unnamed.JPG</file>
-            <file>file:/home/mina/laravel-projects/labs/storage/app/home/mina/laravel-projects/labs/public/storage/uploads/images/labs/1622230455unnamed.JPG</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/layout.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/contactus.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/lab-list.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/routes/web.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/lab-post.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/LabController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/create-lab.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/storage/app/home/mina/laravel-projects/labs/public/storage/uploads/images/labs/1622227201Screenshot_2021-02-01%20jp2a%20converted%20image(2).png</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/auth/reset-password.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

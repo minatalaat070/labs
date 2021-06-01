@@ -5,7 +5,7 @@
 	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{$isAr?$lab->name_ar:ucwords($lab->name)}} {{__('lab_research')}}</h1>
 	<section class="text-gray-600 body-font overflow-hidden">
 		<div class="container px-5 py-24 mx-auto">
-			<div class="-my-8 divide-y-2 divide-gray-100">
+			<div class="-my-8 divide-y-2 divide-gray-300">
 				@foreach($research as $oneResearch)
 				@php
 				$dynamic_name = $isAr ? $oneResearch->name_ar : $oneResearch->name;
@@ -34,4 +34,7 @@
 			</div>
 		</div>
 	</section>
+	<div class="mx-20">
+		{{$research->links()}}
+	</div>
 </x-layout>

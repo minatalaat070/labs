@@ -30,4 +30,7 @@
 			</div>
 		</div>
 	</section>
+	<div class="mx-20">
+		 {{$members->links()}}
+	</div>
 </x-layout>

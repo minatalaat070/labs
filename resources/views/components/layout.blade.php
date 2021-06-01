@@ -2,8 +2,8 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>{{__('website_name')}}</title>
-		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
+		<title>{{__('website_name')}}</title>  
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
@@ -25,7 +25,7 @@
 				<a href ="/about" class="mr-5 hover:text-gray-900">{{__('about')}}</a>
 			</nav>
 			<div class="flex md:inline-felx">
-				<form action="{{route('locale.setting', session('locale')==="ar"?"en":"ar",false)}}" method="POST">
+				<form action="{{route('locale.setting', app()->getLocale()==="ar"?"en":"ar",false)}}" method="POST">
 					@csrf
 					<button submit="button" name="button" class="flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">
 						{{app()->getLocale() === "ar"? "En":"Ar"}}

@@ -1,4 +1,4 @@
-<x-admin-dashboard-layout>
+<x-admin-dashboard-layout name="members">
 	<div class="inline-flex mt-2 ml-2">
 		<a href="{{route("create_member")}}" class=" bg-green-500 m-2 p-2 px-8 text-white hover:shadow-lg text-lg font-thin">{{__("add")}}</a>
 	</div>
@@ -7,7 +7,7 @@
 		<table class="w-full border">
 			<thead>
 				<tr class="bg-gray-50 border-b">
-					<th class="border-r p-2"><input type="checkbox"></th>
+					<th class="border-r p-2">#</th>
 					<th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
 						<div class="flex items-center justify-center">
 							{{__("member_name")}} <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewbox="0 0 24 24" stroke="currentColor">
@@ -34,13 +34,18 @@
 					</th>
 				</tr>
 			</thead>
+			@php
+			$isAr = app()->getLocale() === "ar";
+			$counter=0;
+			$cc = request()->query('page');
+			if($cc){
+				$counter = ($cc-1) * $members->perPage();
+			}
+			@endphp
 			<tbody>
 				@foreach($members as $member)
-				@php
-				$isAr = app()->getLocale() === "ar";
-				@endphp
 				<tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-					<td class="p-2 border-r"><input type="checkbox"></td>
+					<td class="p-2 border-r">{{++$counter}}</td>
 					<td class="p-2 border-r">{{$isAr?$member->name_ar:$member->name}}</td>
 					<td class="p-2 border-r">{{$isAr?$member->lab->name_ar:$member->lab->name}}</td>
 					<td class="p-2 border-r text-justify">{{$isAr?$member->about_ar:$member->about}}</td>
@@ -57,5 +62,8 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+	<div class="mx-4">
+		{{$members->links()}}	
 	</div>
 </x-admin-dashboard-layout>

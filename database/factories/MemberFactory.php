@@ -30,7 +30,7 @@ class MemberFactory extends Factory {
 			'about' => $this->faker->paragraph(),
 			'about_ar' => $faker_ar->paragraph(),
 			'image' => $this->faker->image(public_path("storage/uploads/images/members"), 640, 480, null,  false),
-			'cv_url' => $this->faker->url(),
+			'cv_file' => $this->faker->url(),
 			'staff_url' => $this->faker->url(),
 		];
 	}

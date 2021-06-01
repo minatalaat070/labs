@@ -65,14 +65,16 @@ class LabController extends Controller {
 		//delete lab image
 		$image = Lab::findOrFail($id)->image;
 		//delete relation images
-		$allImagesDeleted = MemberController::deleteImagesWithLabId($id);
+		MemberController::deleteImagesAndCVsWithLabId($id);
 		//delete relation devices
-		$allDevicesDeleted = DeviceController::deleteImagesWithLabId($id);
+		DeviceController::deleteImagesWithLabId($id);
 		//delete lab
 		Lab::findOrFail($id)->delete();
 		// delete lab image from physical storage
-		$isImageDeleted = Storage::delete("public/uploads/images/labs/" . $image);
-		return ($isImageDeleted and $allDevicesDeleted and $allImagesDeleted) ? redirect()->back() : dd("something faild");
+		if (Storage::exists("public/uploads/images/labs/" . $image)) {
+			Storage::delete("public/uploads/images/labs/" . $image);
+		}
+		return redirect()->back();
 	}
 
 }

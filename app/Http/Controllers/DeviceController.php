@@ -21,13 +21,13 @@ class DeviceController extends Controller {
 			'image' => 'dimensions:min_width=100,min_height=200'
 		]);
 		$device = new Device();
-		$slug = ((string) now()->timestamp) . str_replace(' ', '-', strtolower($device->name));
 		$image_name = "";
 		if ($req->hasFile('image')) {
 			$image_name = $this->getImageNameForStorage($req->file('image'));
 			$device->image = $image_name;
 		}
 		$device->name = $req->name;
+		$slug = ((string) now()->timestamp) . str_replace(' ', '-', strtolower($device->name));
 		$device->name_ar = $req->name_ar;
 		$device->description = $req->description;
 		$device->description_ar = $req->description_ar;
@@ -60,13 +60,12 @@ class DeviceController extends Controller {
 	}
 
 	function delete($id) {
-		//delete lab image
-		$image = Device::findOrFail($id)->image;
-
-		//delete lab
-		Device::findOrFail($id)->delete();
-		// delete lab image from physical storage
+		$device = Device::findOrFail($id);
+		// delete device image from physical storage
+		$image = $device->image;
 		$isImageDeleted = Storage::delete("public/uploads/images/devcies/" . $image);
+		//delete device
+		$device->delete();
 		return $isImageDeleted ? redirect()->back() : dd("something faild");
 	}
 
@@ -75,16 +74,15 @@ class DeviceController extends Controller {
 	}
 
 	static function deleteImagesWithLabId($id) {
-		$devices = Device::where('lab_id', '=', (string) $id)->get()->map(function ($device) {
+		$images = Device::where('lab_id', '=', (string) $id)->get()->map(function ($device) {
 			return $device->image;
 		});
-		foreach ($devices as $device) {
-			$isDeviceDeleted = Storage::delete("public/uploads/images/devices/" . $device);
-			if (!$isDeviceDeleted) {
-				return false;
+		foreach ($images as $image) {
+			if (Storage::exists("public/uploads/images/devices/" . $image)) {
+				Storage::delete("public/uploads/images/devices/" . $image);
 			}
 		}
-		return true;
+		return;
 	}
 
 }
