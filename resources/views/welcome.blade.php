@@ -8,8 +8,9 @@
 					<div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
 				</div>
 			</div>
-			<div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6 ">
-				<section class="text-gray-600 body-font">
+			@if($lab and $event)
+			<div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+				<section class= "text-gray-600 body-font">
 					<div class="container px-5 py-24 mx-auto">
 						<div class="flex flex-wrap -m-4 content-center ">
 							<div class="p-4 md:w-1/3">
@@ -48,15 +49,15 @@
 									</div>
 								</div>
 							</div>
+							@php
+							$hasDevice = false;
+							if($lab->devices->count() > 0 ){
+							$device = $lab->devices->random();
+							$hasDevice = true;
+							}
+							@endphp
+							@if($hasDevice)
 							<div class="p-4 md:w-1/3">
-								@php
-								$hasDevice = false;
-								if($lab->devices->count() > 0 ){
-									$device = $lab->devices->random(1)->take(1)[0];
-									$hasDevice = true;
-								}
-								@endphp
-								@if($hasDevice)
 								<div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
 
 									<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="/storage/uploads/images/devices/{{$device->image}}" alt="blog">
@@ -74,12 +75,13 @@
 										</div>
 									</div>
 								</div>
-								@endif
 							</div>
+							@endif
 						</div>
 					</div>
 				</section>
 			</div>
+			@endif
 		</div>
 	</section>
 </x-layout>

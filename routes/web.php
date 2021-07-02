@@ -3,6 +3,7 @@
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LabController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\ThesisController;
@@ -27,7 +28,17 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-	return view('welcome', ["lab" => Lab::all()->random(1)->take(1)[0], "event" => Event::all()->random(1)->take(1)[0]]);
+
+	$count = Lab::query()->count();
+	$lab = null;
+	$event=null;
+	if($count>0) {
+		$lab=Lab::all()->random();
+	}
+	if($count>0){
+		$event =Event::all()->random();
+	}
+	return view('welcome', ["lab" => $lab, "event" => $event]);
 });
 
 Route::get('/dashboard', function () {
@@ -162,9 +173,8 @@ Route::get('events/{event:slug}', function (Event $event) {
 	return view('event-post', ["event" => $event]);
 });
 
-Route::get('contactus', function () {
-	return view('contactus');
-});
+Route::get('contactus',[MailController::class,'contactus']);
+Route::post('contactus',[MailController::class,'sendEmail'])->name('send_email');
 
 Route::get('about', function () {
 	return view('about');

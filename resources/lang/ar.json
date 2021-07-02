@@ -83,6 +83,11 @@
     "publisher_name_in_english": "اسم الناشر بالانجليزية",
     "create_research": "إنشاء بحث",
     "research": "الابحاث العلمية",
+        "event_name": "إسم الحدث",
     "event_about": "عن الحدث",
-    "create_event": "إنشاء حدث"
+    "create_event": "إنشاء حدث",
+    "edit_event":"تعديل الحدث",
+     "event_day": "يوم الحدث",
+    "event_hour": "ساعة الحدث",
+    "log_out":"تسجيل الخروج"
 }

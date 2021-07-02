@@ -22,6 +22,8 @@ class EventController extends Controller {
 			'name_ar' => 'required|string|max:255',
 			'description' => 'required|string|max:65535',
 			'description_ar' => 'required|string|max:65535',
+			'day' => 'required',
+			'hour' => 'required',
 			'image' => 'dimensions:min_width=100,min_height=200'
 		]);
 		$name = $req->name;
@@ -30,14 +32,15 @@ class EventController extends Controller {
 		if ($req->has("image")) {
 			$image_name = $this->getImageNameForStorage($req->file('image'));
 		}
-		$lab = new Event();
-		$lab->name = $name;
-		$lab->name_ar = $req->name_ar;
-		$lab->description = $req->description;
-		$lab->description_ar = $req->description_ar;
-		$lab->slug = $slug;
-		$lab->image = $image_name;
-		$lab->save();
+		$event = new Event();
+		$event->name = $name;
+		$event->name_ar = $req->name_ar;
+		$event->date = $req->day . " " . $req->hour;
+		$event->description = $req->description;
+		$event->description_ar = $req->description_ar;
+		$event->slug = $slug;
+		$event->image = $image_name;
+		$event->save();
 		$req->file('image')->storeAs("public/uploads/images/events", $image_name);
 		return redirect()->back();
 	}
@@ -46,8 +49,21 @@ class EventController extends Controller {
 		return view('admin.event.edit-event', ['event' => $event]);
 	}
 
-	function update(Request $req) {
-		
+	function update($id, Request $req) {
+		$event = Event::findOrFail($id);
+		if ($req->hasFile('image')) {
+			$new_image_name = $this->getImageNameForStorage($req->file('image'));
+			Storage::delete("public/uploads/images/labs/" . $event->image);
+			$req->file('image')->storeAs("public/uploads/images/labs", $new_image_name);
+			$event->image = $new_image_name;
+		}
+		$event->name = $req->name;
+		$event->name_ar = $req->name_ar;
+		$event->date = $req->date;
+		$event->description = $req->description;
+		$event->description_ar = $req->description_ar;
+		$event->save();
+		return redirect()->back();
 	}
 
 	function delete($id) {

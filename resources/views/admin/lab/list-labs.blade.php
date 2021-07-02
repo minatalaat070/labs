@@ -1,4 +1,7 @@
 <x-admin-dashboard-layout name="labs">
+	<div class="inline-flex mt-2 ml-2">
+		<a href="{{route("create_lab")}}" class=" bg-green-500 m-2 p-2 px-8 text-white hover:shadow-lg text-lg font-thin">{{__("add")}}</a>
+	</div>
 	<div class="table w-full p-2">
 		<table class="w-full border">
 			<thead>

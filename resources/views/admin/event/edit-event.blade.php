@@ -23,12 +23,27 @@
 						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_arabic')}}</label>
 						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="name_ar" value="{{$event->name_ar}}"/>
 					</div>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+						@php
+						$all = explode(" ",$event->date);
+						$day = $all[0];
+						$hour = $all[1];
+						@endphp
+						<div class="grid grid-cols-1">
+							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('event_day')}}</label>
+							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" value= "{{$day}}" type="date" placeholder="dd-mm-yyyy" required name="day" max="26-01-4000"/>
+						</div>
+						<div class="grid grid-cols-1">
+							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('event_hour')}}</label>
+							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" value = "{{$hour}}" type="time" placeholder="hh:mm" name="hour" required/>
+						</div>
+					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('about_in_english')}}</label>
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('description_in_english')}}</label>
 						<textarea name="description"  class="mt-4 w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" data-_extension-text-contrast="">{{$event->description}}</textarea>
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('about_in_arabic')}}</label>
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('description_in_arabic')}}</label>
 						<textarea dir="rtl" name="description_ar" class="mt-4 w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" data-_extension-text-contrast="">{{$event->description_ar}}</textarea>
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
