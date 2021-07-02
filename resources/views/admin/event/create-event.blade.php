@@ -1,6 +1,6 @@
 <x-admin-dashboard-layout name="">
-	<div class="overflow-y-visible">
-		<div class="flex h-screen bg-gray-200 items-center justify-center ">
+	<div class="overflow-y-auto">
+		<div class="flex h-auto bg-gray-200 items-center justify-center p-10 ">
 			<div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
 				<div class="flex justify-center py-4">
 					<div class="flex bg-purple-200 rounded-full md:p-4 p-2 border-2 border-purple-300">

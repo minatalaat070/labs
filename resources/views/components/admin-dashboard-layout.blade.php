@@ -22,7 +22,8 @@
 	<body class="bg-gray-100 font-family-karla flex">
 		<script>0</script>
 
-		<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+		<!--h-screen was removed and replaced by h-auto-->
+		<aside class="relative bg-sidebar w-64 h-auto hidden sm:block shadow-xl">
 			<div class="p-6">
 				<a href="{{route('dashboard')}}" class="text-white text-3xl font-semibold uppercase">Admin</a>
 				<a href="{{route('create_lab')}}">
@@ -66,13 +67,13 @@
 				</a>
 			</nav>
 		</aside>
-
-		<div class="w-full flex flex-col h-screen overflow-y-auto">
+<!--h-screen was removed and replaced by h-auto-->
+		<div class="w-full flex flex-col h-auto overflow-y-auto">
 			<!-- Desktop Header -->
 			<header class="w-full items-center  py-2 px-6 hidden sm:flex ">
 				<form action="{{route('locale.setting', app()->getLocale() === "ar" ? "en" : "ar", false)}}" method="POST">
 					@csrf
-					<button submit="button" name="button" class="flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">
+					<button submit="button" name="button" class="flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">
 						{{app()->getLocale() === "ar"? "En":"Ar"}}
 					</button>
 				</form>
@@ -142,6 +143,7 @@
 			</header>
 
 			{{$slot}}
+			
 			<footer class="w-full bg-white text-right p-4 mt-16">
 				Built by <a target="_blank" href="" class="underline">CS 4th Year Students</a>.
 

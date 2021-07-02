@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/lab/list-labs.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/admin-dashboard-layout.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_225401_create_events_table.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/EventController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/routes/auth.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/lab/create-lab.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/event/edit-event.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/en.json</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/contactus.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/routes/web.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/event/list-events.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/research/edit-research.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/ar.json</file>
+            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/MailController.php</file>
+            <file>file:/home/mina/laravel-projects/labs/app/Mail/ContactMail.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/email/contact-msg.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/.env</file>
         </group>
     </open-files>
 </project-private>

@@ -65,6 +65,8 @@
     "staff_url": "Staff Page Link",
     "thesis_title": "Thesis Title",
     "thesis_about": "About Thesis",
+    "edit_thesis": "Edit Thesis",
+    "craete_thesis": "Create Thesis",
     "theses": "Theses",
     "title_in_english": "Title in English",
     "title_in_arabic": "Title in Arabic",
@@ -89,5 +91,5 @@
     "edit_event": "Edit Event",
     "event_day": "Event Day",
     "event_hour": "Event Hour",
-    "log_out":"Log out"
+    "log_out": "Log out"
 }

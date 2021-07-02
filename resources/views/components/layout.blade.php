@@ -25,14 +25,14 @@
 				<a href ="/about" class="mr-5 hover:text-gray-900">{{__('about')}}</a>
 			</nav>
 			<div class="flex md:inline-felx">
-				<form action="{{route('locale.setting', app()->getLocale()==="ar"?"en":"ar",false)}}" method="POST">
+				<form action="{{route('locale.setting', app()->getLocale()==="ar"?"en":"ar",false)}}" method="POST" class="mr-4">
 					@csrf
 					<button submit="button" name="button" class="flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 hover:text-white rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">
 						{{app()->getLocale() === "ar"? "En":"Ar"}}
 					</button>
 				</form>
-				<br class="ml-4 mr-4"><!-- comment -->
-					<a href="/dashboard"><button class="flex items-center bg-indigo-500 text-white border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 hover:text-black rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">{{__('dashboard')}}</button></a>
+<!--				<br class="ml-4 mr-4"> comment -->
+				<a class="ml-4" href="/dashboard"><button class="flex items-center bg-indigo-500 text-white border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 hover:text-black rounded text-base mt-4 md:mt-0" data-_extension-text-contrast="">{{__('dashboard')}}</button></a>
 			</div>
 		</div>
 	</header>
