@@ -21,6 +21,10 @@ class LabController extends Controller {
 			'name_ar' => 'required|string|max:255',
 			'about' => 'required|string|max:65535',
 			'about_ar' => 'required|string|max:65535',
+			'phone_number' => 'required|string|max:255',
+			'fax_number' => 'required|string|max:255',
+			'email' => 'required|email:rfc',
+			'address' => 'required|string|max:255',
 			'image' => 'dimensions:min_width=100,min_height=200'
 		]);
 		$name = $req->name;
@@ -34,6 +38,10 @@ class LabController extends Controller {
 		$lab->name_ar = $req->name_ar;
 		$lab->about = $req->about;
 		$lab->about_ar = $req->about_ar;
+		$lab->phone_number = $req->phone_number;
+		$lab->fax_number = $req->fax_number;
+		$lab->email = $req->email;
+		$lab->address = $req->address;
 		$lab->slug = $slug;
 		$lab->image = $image_name;
 		$lab->save();
@@ -57,6 +65,10 @@ class LabController extends Controller {
 		$lab->name_ar = $req->name_ar;
 		$lab->about = $req->about;
 		$lab->about_ar = $req->about_ar;
+		$lab->phone_number = $req->phone_number;
+		$lab->fax_number = $req->fax_number;
+		$lab->email = $req->email;
+		$lab->address = $req->address;
 		$lab->save();
 		return redirect()->back();
 	}

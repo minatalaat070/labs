@@ -32,6 +32,22 @@
 						<textarea dir="rtl" name="about_ar" class="mt-4 w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" data-_extension-text-contrast="">{{$lab->about_ar}}</textarea>
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('phone_number')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="tel" name="phone_number" value="{{$lab->phone_number}}"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('fax_number')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="tel" name="fax_number" value="{{$lab->fax_number}}"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('email')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" name="email" value="{{$lab->email}}"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('address')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="address" value="{{$lab->address}}"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
 						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">{{__('upload_photo')}}</label>
 						<div class='flex items-center justify-center w-full'>
 							<label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>

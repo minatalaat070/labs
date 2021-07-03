@@ -29,16 +29,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-	$count = Lab::query()->count();
+	$labCount = Lab::query()->count();
+
 	$lab = null;
-	$event=null;
-	if($count>0) {
-		$lab=Lab::all()->random();
+	if ($labCount > 0) {
+		$lab = Lab::all()->random();
 	}
-	if($count>0){
-		$event =Event::all()->random();
-	}
-	return view('welcome', ["lab" => $lab, "event" => $event]);
+
+	return view('welcome', ["lab" => $lab]);
 });
 
 Route::get('/dashboard', function () {
@@ -117,7 +115,7 @@ Route::get("/dashboard/events", function () {
 	return view("admin.event.list-events", ["events" => Event::with("lab")->paginate()]);
 })->middleware("auth")->name("dashborad_list_events");
 Route::get("/dashboard/create-event", function () {
-	return view("admin.event.create-event",["labs"=>Lab::all()]);
+	return view("admin.event.create-event", ["labs" => Lab::all()]);
 })->middleware(["auth"])->name("create_event");
 Route::post("/dashboard/create-event", [EventController::class, 'store'])->middleware(["auth"]);
 Route::get("/dashboard/edit-event/{event:slug}", [EventController::class, 'edit'])->middleware(["auth"])->name("edit_event");
@@ -172,7 +170,9 @@ Route::get('labs/{lab:slug}/events', function (Lab $lab) {
 Route::get('labs/{lab:slug}/events/{thesis:slug}', function (Lab $lab, Event $event) {
 	return view('event-post', ["lab" => $lab, "event" => $event]);
 });
-
+Route::get('labs/{lab:slug}/contact', function (Lab $lab) {
+	return view('contact-lab', ["lab" => $lab]);
+});
 //Route::get('events', function () {
 //	return view('event-list', ["events" => Event::query()->paginate()]);
 //});
@@ -181,8 +181,8 @@ Route::get('labs/{lab:slug}/events/{thesis:slug}', function (Lab $lab, Event $ev
 //	return view('event-post', ["event" => $event]);
 //});
 
-Route::get('contactus',[MailController::class,'contactus']);
-Route::post('contactus',[MailController::class,'sendEmail'])->name('send_email');
+Route::get('contactus', [MailController::class, 'contactus']);
+Route::post('contactus', [MailController::class, 'sendEmail'])->name('send_email');
 
 Route::get('about', function () {
 	return view('about');

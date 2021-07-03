@@ -2,7 +2,11 @@
 	@php
 	$isAr = app()->getLocale() === "ar" ? true : false;
 	@endphp
-	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{$isAr?$lab->name_ar:ucwords($lab->name)}} {{__('lab_devices')}}</h1>
+	@if($isAr)
+	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{__('lab_devices')}} {{$lab->name_ar}} </h1>
+	@else
+	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{ucwords($lab->name)}} {{__('lab_devices')}}</h1>
+	@endif
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="flex flex-wrap -m-4">

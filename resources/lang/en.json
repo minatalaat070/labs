@@ -1,5 +1,5 @@
 {
-    "website_name": "Physics Department Labs",
+    "website_name": "Physics Department Research Labs",
     "home": "Home",
     "labs": "Labs",
     "events": "Events",
@@ -79,7 +79,7 @@
     "publish_hour": "Publishing Hour",
     "publish_year": "Publish Year",
     "edit_research": "Edit Research",
-    "research_title": "Research Title",
+    "research_title": "Research Title ",
     "research_about": "Research About",
     "research_pdf_link_optional": "Research  Link (Optional)",
     "publisher_name_in_arabic": "Publisher Name in Arabic",
@@ -94,5 +94,9 @@
     "event_day": "Event Day",
     "event_hour": "Event Hour",
     "log_out": "Log out",
-    "journal": "Journal"
+    "journal": "Journal",
+    "phone_number": "Phone Number",
+    "fax_number": "Fax Number",
+    "address": "Address",
+    "lab_contact": "Contact Lab"
 }

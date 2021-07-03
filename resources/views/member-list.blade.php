@@ -1,5 +1,13 @@
 <x-layout>
+	@php
+	$isAr = app()->getLocale() === "ar" ? true : false;
+	@endphp
+	@if($isAr)
+	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{__('lab_members')}} {{$lab->name_ar}} </h1>
+	@else
 	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{ucwords($lab->name)}} {{__('lab_members')}}</h1>
+	@endif
+	
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="flex flex-wrap -m-4">
@@ -31,6 +39,6 @@
 		</div>
 	</section>
 	<div class="mx-20">
-		 {{$members->links()}}
+		{{$members->links()}}
 	</div>
 </x-layout>

@@ -19,6 +19,10 @@ class CreateLabsTable extends Migration {
 			$table->string("slug")->unique();
 			$table->text("about");
 			$table->text("about_ar");
+			$table->text('phone_number');
+			$table->text('fax_number');
+			$table->text('email');
+			$table->text('address');
 			$table->string("image");
 			$table->timestamps();
 		});

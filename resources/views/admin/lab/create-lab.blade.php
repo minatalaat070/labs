@@ -22,7 +22,7 @@
 
 					<div class="grid grid-cols-1 mt-5 mx-7">
 						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_arabic')}}</label>
-						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="name_ar" />
+						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="name_ar" />
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
 						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('about_in_english')}}</label>
@@ -30,7 +30,29 @@
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
 						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('about_in_arabic')}}</label>
-						<textarea name="about_ar" class="mt-4 w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" data-_extension-text-contrast=""></textarea>
+						<textarea dir="rtl"name="about_ar" class="mt-4 w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" data-_extension-text-contrast=""></textarea>
+					</div>
+					<!--							
+							$lab->phone_number = $req->phone_number;
+							$lab->fax_number = $req->fax_number;
+							$lab->email = $req->email;
+							$lab->address = $req->address;-->
+					
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('phone_number')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="tel" name="phone_number"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('fax_number')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="tel" name="fax_number"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('email')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" name="email"/>
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('address')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="address"/>
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">
