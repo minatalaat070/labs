@@ -15,12 +15,12 @@ class ThesisController extends Controller {
 		$req->validate([
 			'title' => 'required|string|max:255',
 			'title_ar' => 'required|string|max:255',
+			'lab_id' => 'required',
 			'author' => 'required|string|max:255',
 			'author_ar' => 'required|string|max:255',
 			'supervisors' => 'required|string|max:65535',
 			'supervisors_ar' => 'required|string|max:65535',
-			"day" => "required",
-			"hour" => "required",
+			"year" => "required|string|max:4",
 			'about' => 'required|string|max:65535',
 			'about_ar' => 'required|string|max:65535',
 			'pdf_url' => 'nullable|url'
@@ -35,7 +35,7 @@ class ThesisController extends Controller {
 		$thesis->author_ar = $req->author_ar;
 		$thesis->supervisors = $req->supervisors;
 		$thesis->supervisors_ar = $req->supervisors_ar;
-		$thesis->awarded_at = $req->day . " " . $req->hour;
+		$thesis->awarded_at = $req->year;
 		$thesis->slug = $slug;
 		if (!($req->pdf === null)) {
 			$thesis->pdf_url = $req->pdf_url;
@@ -62,7 +62,7 @@ class ThesisController extends Controller {
 		$thesis->author_ar = $req->author_ar;
 		$thesis->supervisors = $req->supervisors;
 		$thesis->supervisors_ar = $req->supervisors_ar;
-		$thesis->awarded_at = $req->day . " " . $req->hour;
+		$thesis->awarded_at = $req->year;
 		$thesis->about = $req->about;
 		$thesis->about_ar = $req->about_ar;
 		$thesis->lab_id = $req->lab_id;

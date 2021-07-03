@@ -16,32 +16,36 @@
 				<form action="{{ route('create_research') }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_english')}}</label>
-						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="name" />
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('title_in_english')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="title" />
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_arabic')}}</label>
-						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="name_ar" />
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('title_in_arabic')}}</label>
+						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="title_ar" />
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publisher_name_in_english')}}</label>
-						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="publisher" />
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('author_name_in_english')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="author" />
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publisher_name_in_arabic')}}</label>
-						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="publisher_ar"/>
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('author_name_in_arabic')}}</label>
+						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="author_ar"/>
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
 						<div class="grid grid-cols-1">
-							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_day')}}</label>
-							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="dd-mm-yyyy" required name="day" max="26-01-2222"/>
+							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_year')}}</label>
+							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="yyyy" required name="year" />
 						</div>
-						<div class="grid grid-cols-1">
-							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_hour')}}</label>
-							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="time" placeholder="hh:mm" name="hour" required/>
-						</div>
+						<!--						<div class="grid grid-cols-1">
+													<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_hour')}}</label>
+													<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="time" placeholder="hh:mm" name="hour" required/>
+												</div>-->
+					</div>
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('journal')}}</label>
+						<input  class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="journal"/>
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">

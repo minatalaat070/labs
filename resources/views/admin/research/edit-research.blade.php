@@ -15,37 +15,32 @@
 				<form action="{{ route('update_research',$research->id) }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_english')}}</label>
-						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="name" value="{{$research->name}}"/>
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('title_in_english')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="title" value="{{$research->title}}"/>
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_arabic')}}</label>
-						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="name_ar" value="{{$research->name_ar}}" />
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('title_in_arabic')}}</label>
+						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="title_ar" value="{{$research->title_ar}}" />
 					</div>
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publisher_name_in_english')}}</label>
-						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="publisher" value="{{$research->publisher_name}}"/>
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('author_name_in_english')}}</label>
+						<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" name="author" value="{{$research->author_name}}"/>
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">
-						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publisher_name_in_arabic')}}</label>
-						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="publisher_ar" value="{{$research->publisher_name_ar}}" />
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('author_name_in_arabic')}}</label>
+						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="author_ar" value="{{$research->author_name_ar}}" />
 					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
 						<div class="grid grid-cols-1">
 							@php
-							$all = explode(" ",$research->published_at);
-							$day = $all[0];
-							$hour = $all[1];
+							$year = $research->published_at;
 							@endphp
-							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_day')}}</label>
-							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date"  value="{{$day}}" placeholder="dd-mm-yyyy" required name="day" max="26-01-2222"/>
+							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_year')}}</label>
+							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  value="{{$year}}" placeholder="dd-mm-yyyy" required name="year" max="26-01-2222"/>
 						</div>
-						<div class="grid grid-cols-1">
-							<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('publish_hour')}}</label>
-							<input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" value="{{$hour}}" type="time" placeholder="hh:mm" name="hour" required/>
-						</div>
+
 					</div>
 
 					<div class="grid grid-cols-1 mt-5 mx-7">

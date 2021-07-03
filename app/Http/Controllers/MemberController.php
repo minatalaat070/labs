@@ -15,6 +15,7 @@ class MemberController extends Controller {
 		$req->validate([
 			'name' => 'required|string|max:255',
 			'name_ar' => 'required|string|max:255',
+			'lab_id' => 'required',
 			'about' => 'required|string|max:65535',
 			'about_ar' => 'required|string|max:65535',
 			'image' => 'required|dimensions:min_width=100,min_height=200',

@@ -70,15 +70,16 @@
     "theses": "الرسائل العلمية",
     "title_in_english": "العنوان  بالانجليزية",
     "title_in_arabic": "العنوان بالعربية",
-    "author_name_in_english": "اسم الناشر  بالانجليزية",
-    "author_name_in_arabic": "اسم الناشر بالعربية",
+    "author_name_in_english": "اسم المؤلف  بالانجليزية",
+    "author_name_in_arabic": "اسم المؤلف بالعربية",
     "supervisors_names_in_arabic": "اسم المشرفون بالعربية",
     "supervisors_names_in_english": "اسم المشرفون بالانجليزية",
     "thesis_pdf_link_optional": "رابط الرسالة العلمية (اختياري)",
     "publish_day": "يوم النشر",
     "publish_hour": "ساعة النشر",
+    "publish_year": "سنة النشر",
     "edit_research": "تعديل البحث",
-    "research_name": "إسم البحث",
+    "research_title": "عنوان البحث",
     "research_about": "حول البحث",
     "research_pdf_link_optional": "رابط البحث (اختياري)",
     "publisher_name_in_arabic": "اسم الناشر بالعربية",
@@ -92,5 +93,6 @@
     "edit_event": "تعديل الحدث",
     "event_day": "يوم الحدث",
     "event_hour": "ساعة الحدث",
-    "log_out": "تسجيل الخروج"
+    "log_out": "تسجيل الخروج",
+    "journal": "المجلة"
 }

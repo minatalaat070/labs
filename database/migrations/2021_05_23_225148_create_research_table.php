@@ -13,14 +13,27 @@ class CreateResearchTable extends Migration {
 	 */
 	public function up() {
 		Schema::create('research', function (Blueprint $table) {
+//			$table->id();
+//			$table->foreignId("lab_id")->constrained()->onDelete('cascade')->onUpdate('cascade');
+//			$table->string("name");
+//			$table->string("name_ar");
+//			$table->string("slug")->unique();
+//			$table->string("publisher_name");
+//			$table->string("publisher_name_ar");
+//			$table->timestamp("published_at");
+//			$table->text("about");
+//			$table->text("about_ar");
+//			$table->string("pdf_url");
+//			$table->timestamps();
 			$table->id();
 			$table->foreignId("lab_id")->constrained()->onDelete('cascade')->onUpdate('cascade');
-			$table->string("name");
-			$table->string("name_ar");
+			$table->string("title");
+			$table->string("title_ar");
 			$table->string("slug")->unique();
-			$table->string("publisher_name");
-			$table->string("publisher_name_ar");
-			$table->timestamp("published_at");
+			$table->string("author_name");
+			$table->string("author_name_ar");
+			$table->string("journal");
+			$table->year("published_at");
 			$table->text("about");
 			$table->text("about_ar");
 			$table->string("pdf_url");

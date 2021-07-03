@@ -20,6 +20,7 @@ class EventController extends Controller {
 		$req->validate([
 			'name' => 'required|string|max:255',
 			'name_ar' => 'required|string|max:255',
+			'lab_id' => 'required',
 			'description' => 'required|string|max:65535',
 			'description_ar' => 'required|string|max:65535',
 			'day' => 'required',
@@ -47,7 +48,7 @@ class EventController extends Controller {
 	}
 
 	function edit(Event $event) {
-		return view('admin.event.edit-event', ['event' => $event,"labs"=> Lab::all()]);
+		return view('admin.event.edit-event', ['event' => $event, "labs" => Lab::all()]);
 	}
 
 	function update($id, Request $req) {

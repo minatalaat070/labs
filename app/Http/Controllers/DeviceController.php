@@ -16,6 +16,7 @@ class DeviceController extends Controller {
 		$req->validate([
 			'name' => 'required|string|max:255',
 			'name_ar' => 'required|string|max:255',
+			'lab_id' => 'required',
 			'description' => 'required|string|max:65535',
 			'description_ar' => 'required|string|max:65535',
 			'image' => 'dimensions:min_width=100,min_height=200'
