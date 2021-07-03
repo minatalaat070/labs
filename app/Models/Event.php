@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model {
 
 	use HasFactory;
+	public function lab() {
+		return $this->belongsTo(Lab::class);
+	}
 }

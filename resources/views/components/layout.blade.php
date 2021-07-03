@@ -20,7 +20,7 @@
 			<nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
 				<a href ="/" class="mr-5 hover:text-gray-900">{{__('home')}}</a>
 				<a href ="/labs" class="mr-5 hover:text-gray-900">{{__('labs')}}</a>
-				<a href ="/events" class="mr-5 hover:text-gray-900">{{__('events')}}</a>
+<!--				<a href ="/events" class="mr-5 hover:text-gray-900">{{__('events')}}</a>-->
 				<a href ="/contactus" class="mr-5 hover:text-gray-900">{{__('contact')}}</a>
 				<a href ="/about" class="mr-5 hover:text-gray-900">{{__('about')}}</a>
 			</nav>

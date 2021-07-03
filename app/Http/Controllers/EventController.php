@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Lab;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use function ddd;
 use function now;
 use function redirect;
 use function view;
@@ -39,6 +39,7 @@ class EventController extends Controller {
 		$event->description = $req->description;
 		$event->description_ar = $req->description_ar;
 		$event->slug = $slug;
+		$event->lab_id = $req->lab_id;
 		$event->image = $image_name;
 		$event->save();
 		$req->file('image')->storeAs("public/uploads/images/events", $image_name);
@@ -46,7 +47,7 @@ class EventController extends Controller {
 	}
 
 	function edit(Event $event) {
-		return view('admin.event.edit-event', ['event' => $event]);
+		return view('admin.event.edit-event', ['event' => $event,"labs"=> Lab::all()]);
 	}
 
 	function update($id, Request $req) {
@@ -61,6 +62,7 @@ class EventController extends Controller {
 		$event->name_ar = $req->name_ar;
 		$event->date = $req->date;
 		$event->description = $req->description;
+		$event->lab_id = $req->lab_id;
 		$event->description_ar = $req->description_ar;
 		$event->save();
 		return redirect()->back();

@@ -24,5 +24,8 @@ class Lab extends Model {
 	public function research() {
 		return $this->hasMany(Research::class);
 	}
+	public function events() {
+		return $this->hasMany(Event::class);
+	}
 
 }

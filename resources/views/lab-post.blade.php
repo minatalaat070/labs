@@ -18,6 +18,9 @@
 							<a href="/labs/{{$lab->slug}}/research"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('lab_research')}}</button></a>
 							<a href="/labs/{{$lab->slug}}/theses"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('lab_theses')}}</button></a>
 						</div>
+						<div class="flex md:inline-felx mt-6 leading-relaxed">
+							<a href="/labs/{{$lab->slug}}/events"><button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mx-8">{{__('lab_events')}}</button></a>
+						</div>
 					</div>
 					<a href="/labs" class="text-indigo-500 inline-flex items-center mt-4">{{__('go_back')}}
 						<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">

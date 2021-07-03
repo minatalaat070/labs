@@ -1,6 +1,8 @@
 <x-layout>
-
-	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{__('events')}}</h1>
+	@php
+	$isAr = app()->getLocale() === "ar" ? true : false;
+	@endphp
+	<h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">{{$isAr?$lab->name_ar:ucwords($lab->name)}} {{__('lab_events')}}</h1>
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="flex flex-wrap -m-4">

@@ -85,6 +85,7 @@
     "publisher_name_in_english": "Publisher Name in English",
     "create_research": "Create Research",
     "research": "Research",
+        "lab_events":"Lab Events",
     "event_name": "Event Name",
     "event_about": "About Event",
     "create_event": "Create Event",

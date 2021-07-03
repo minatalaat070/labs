@@ -21,12 +21,12 @@ class DatabaseSeeder extends Seeder {
 		// \App\Models\User::factory(10)->create();
 		for ($index = 0; $index < 7; $index++) {
 			$lab = Lab::factory()->create();
-			Device::factory(10)->create(['lab_id' => $lab->id]);
-			Member::factory(10)->create(['lab_id' => $lab->id]);
-			Thesis::factory(10)->create(['lab_id' => $lab->id]);
-			Research::factory(10)->create(['lab_id' => $lab->id]);
+			Device::factory(7)->create(['lab_id' => $lab->id]);
+			Member::factory(7)->create(['lab_id' => $lab->id]);
+			Thesis::factory(7)->create(['lab_id' => $lab->id]);
+			Research::factory(7)->create(['lab_id' => $lab->id]);
+			Event::factory(7)->create(['lab_id' => $lab->id]);
 		}
-		Event::factory(20)->create();
 	}
 
 }

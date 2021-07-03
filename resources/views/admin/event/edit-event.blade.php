@@ -23,6 +23,17 @@
 						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('name_in_arabic')}}</label>
 						<input dir="rtl" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text"  name="name_ar" value="{{$event->name_ar}}"/>
 					</div>
+					<div class="grid grid-cols-1 mt-4 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">{{__('lab')}}</label>
+						<select  name="lab_id" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+							<option value="{{$event->lab->id}}">{{$event->lab->name}}</option>
+							@foreach($labs as $lab)
+							@if(!($lab->id == $event->lab->id))
+							<option value="{{$lab->id}}">{{$lab->name}}</option>
+							@endif
+							@endforeach
+						</select>
+					</div>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
 						@php
 						$all = explode(" ",$event->date);

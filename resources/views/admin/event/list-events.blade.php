@@ -15,6 +15,12 @@
 					</th>
 					<th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
 						<div class="flex items-center justify-center">
+							{{__("belongs_to_lab")}} <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
+						</div>
+					</th>
+					<th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+						<div class="flex items-center justify-center">
 							{{__("event_about")}}<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewbox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
 						</div>
@@ -40,7 +46,8 @@
 				<tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
 					<td class="p-2 border-r">{{++$counter}}</td>
 					<td class="p-2 border-r">{{$isAr?$event->name_ar:$event->name}}</td>
-					<td class="p-2 border-r">{{$isAr?$event->description_ar:$event->description}}</td>
+					<td class="p-2 border-r">{{$isAr?$event->lab->name_ar:$event->lab->name}}</td>
+					<td class="p-2 border-r text-justify">{{$isAr?$event->description_ar:$event->description}}</td>
 
 					<td>
 						<div class="inline-flex">

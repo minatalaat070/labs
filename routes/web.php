@@ -114,10 +114,10 @@ Route::post("/dashboard/delete-research/{id}", [ResearchController::class, 'dele
 
 // Events CRUD routes
 Route::get("/dashboard/events", function () {
-	return view("admin.event.list-events", ["events" => Event::query()->paginate()]);
+	return view("admin.event.list-events", ["events" => Event::with("lab")->paginate()]);
 })->middleware("auth")->name("dashborad_list_events");
 Route::get("/dashboard/create-event", function () {
-	return view("admin.event.create-event");
+	return view("admin.event.create-event",["labs"=>Lab::all()]);
 })->middleware(["auth"])->name("create_event");
 Route::post("/dashboard/create-event", [EventController::class, 'store'])->middleware(["auth"]);
 Route::get("/dashboard/edit-event/{event:slug}", [EventController::class, 'edit'])->middleware(["auth"])->name("edit_event");
@@ -165,13 +165,21 @@ Route::get('labs/{lab:slug}/theses/{thesis:slug}', function (Lab $lab, Thesis $t
 	return view('thesis-post', ["lab" => $lab, "thesis" => $thesis]);
 });
 
-Route::get('events', function () {
-	return view('event-list', ["events" => Event::query()->paginate()]);
+Route::get('labs/{lab:slug}/events', function (Lab $lab) {
+	return view('event-list', ["lab" => $lab, "events" => $lab->events()->paginate(9)]);
 });
 
-Route::get('events/{event:slug}', function (Event $event) {
-	return view('event-post', ["event" => $event]);
+Route::get('labs/{lab:slug}/events/{thesis:slug}', function (Lab $lab, Event $event) {
+	return view('event-post', ["lab" => $lab, "event" => $event]);
 });
+
+//Route::get('events', function () {
+//	return view('event-list', ["events" => Event::query()->paginate()]);
+//});
+//
+//Route::get('events/{event:slug}', function (Event $event) {
+//	return view('event-post', ["event" => $event]);
+//});
 
 Route::get('contactus',[MailController::class,'contactus']);
 Route::post('contactus',[MailController::class,'sendEmail'])->name('send_email');
