@@ -65,6 +65,10 @@
 					<i class="fas fa-calendar-alt mr-3"></i>
 					{{__('events')}}
 				</a>
+				<a href="{{route('dashborad_list_events')}}" class="flex items-center text-white  {{$name=="misc"?"active-nav-link":""}}  opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i class="fas fa-file-alt mr-3"></i>
+					{{__('misc')}}
+				</a>
 			</nav>
 		</aside>
 <!--h-screen was removed and replaced by h-auto-->
@@ -80,11 +84,11 @@
 				<div class="w-1/2"></div>
 				<div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
 					<button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-						<img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
+						<img src="{{asset('storage/uploads/images/admin.png')}}">
 					</button>
 					<button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
 					<div x-show="isOpen" class="absolute w-38 bg-white rounded-lg shadow-lg py-2 mt-16">
-						<a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
+<!--						<a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>-->
 						<form action="{{route('logout')}}" method="POST">
 							@csrf
 							<button  type="submit" class="block px-4 py-2 account-link hover:text-white bg-white"> {{__('log_out')}}</button>
@@ -132,6 +136,10 @@
 					<a href="{{route('dashborad_list_events')}}" class="flex items-center text-white  {{$name=="research"?"active-nav-link":""}} opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						<i class="fas fa-calendar-alt mr-3"></i>
 						{{__('events')}}
+					</a>
+					<a href="{{route('misc')}}" class="flex items-center text-white  {{$name=="misc"?"active-nav-link":""}} opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+						<i class="fas fa-calendar-alt mr-3"></i>
+						{{__('misc')}}
 					</a>
 					<form action="{{route('logout')}}" method="POST" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 						@csrf

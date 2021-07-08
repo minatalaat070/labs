@@ -1,9 +1,19 @@
 <x-layout>
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
+			@php
+			$fileName = app()->getLocale() === "ar" ? "word_ar.txt" : "word_en.txt";
+			$path= resource_path($fileName);
+			$content="";
+			if(!file_exists($path)){
+				$content="";
+			}else{
+				$content = file_get_contents($path);
+			}
+			@endphp
 			<div class="text-center mb-20">
 				<h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">{{__('website_name')}}</h1>
-				<p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+				<p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">{{$content}}</p>
 				<div class="flex mt-6 justify-center">
 					<div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
 				</div>

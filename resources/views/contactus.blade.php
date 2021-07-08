@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</form>
-			<div class="bg-gray-100 relative flex flex-wrap py-6 rounded shadow-md w-1/2 mx-auto items-center">
+			<div class="bg-gray-100 relative flex flex-wrap py-6 rounded shadow-md w-1/2 mx-auto items-center mt-4i9">
 				<div class="lg:w-1/2 px-6">
 					<h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">{{__('address')}}</h2>
 					<p class="mt-1">Sohag, Egypt</p>

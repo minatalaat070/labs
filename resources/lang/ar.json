@@ -98,5 +98,9 @@
     "phone_number":"رقم الهاتف",
     "fax_number":"رقم الفاكس",
     "address":"العنوان",
-    "lab_contact":"تواصل مع المعمل"
+    "lab_contact":"تواصل مع المعمل",
+     "misc":"متنوعة",
+    "word_in_english":"كلمة الموقع بالانجليزية",
+    "word_in_arabic":"كلمة الموقع بالعربية",
+    "edit_misc":"تعديل المنوعات"
 }

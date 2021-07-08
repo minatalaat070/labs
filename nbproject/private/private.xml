@@ -3,50 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mina/laravel-projects/labs/app/Models/Event.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/device/edit-device.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/MailController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/factories/EventFactory.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/lab/edit-lab.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/EventController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/composer.lock</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/device-post.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/device/list-devices.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/en.json</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/member/create-member.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/about_ar.txt</file>
+            <file>file:/home/mina/laravel-projects/labs/app/Exceptions/Handler.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/about_en.txt</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/components/admin-dashboard-layout.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/database/factories/DeviceFactory.php</file>
+            <file>file:/home/mina/laravel-projects/labs/routes/auth.php</file>
+            <file>file:/home/mina/laravel-projects/labs/app/Providers/BroadcastServiceProvider.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/word_ar.txt</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/word_en.txt</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/contactus.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/routes/web.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/event/list-events.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/welcome.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/event/create-event.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/ResearchController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/research/edit-research.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/about.blade.php</file>
             <file>file:/home/mina/laravel-projects/labs/database/seeders/DatabaseSeeder.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/device-list.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/.env</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/ar.json</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/admin-dashboard-layout.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/thesis/create-thesis.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/member/edit-member.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Mail/ContactMail.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/email/contact-msg.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_225401_create_events_table.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/factories/DeviceFactory.php</file>
-            <file>file:/home/mina/laravel-projects/labs/database/migrations/2021_05_23_223505_create_devices_table.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Models/Lab.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/layout.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/lab/create-lab.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/event/edit-event.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Providers/EventServiceProvider.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/DeviceController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/research/create-research.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/contactus.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/lab-list.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/routes/web.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/device/create-device.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/event/list-events.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/thesis/edit-thesis.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/lab-post.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/README.md</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Models/Device.php</file>
+            <file>file:/home/mina/laravel-projects/labs/app/Providers/AppServiceProvider.php</file>
+            <file>file:/home/mina/laravel-projects/labs/app/Providers/AuthServiceProvider.php</file>
             <file>file:/home/mina/laravel-projects/labs/resources/views/event-list.blade.php</file>
+            <file>file:/home/mina/laravel-projects/labs/resources/views/contact-lab.blade.php</file>
         </group>
     </open-files>
 </project-private>

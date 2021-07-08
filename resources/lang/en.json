@@ -98,5 +98,9 @@
     "phone_number": "Phone Number",
     "fax_number": "Fax Number",
     "address": "Address",
-    "lab_contact": "Contact Lab"
+    "lab_contact": "Contact Lab",
+    "misc":"Miscellaneous",
+    "word_in_english":"Word in English",
+    "word_in_arabic":"Word in Arabic",
+    "edit_misc":"Edit Miscellaneous"
 }

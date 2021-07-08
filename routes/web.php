@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MiscController;
 use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\ThesisController;
 use App\Http\Middleware\SetDefaultLocaleForUrls;
@@ -187,7 +188,8 @@ Route::post('contactus', [MailController::class, 'sendEmail'])->name('send_email
 Route::get('about', function () {
 	return view('about');
 });
-
+Route::get('dashboard/misc',[MiscController::class,'get'])->name('misc');
+Route::post('dashboard/misc',[MiscController::class,'update']);
 Route::post("{locale}", function ($locale) {
 	if (!in_array($locale, config("app.locales"))) {
 		app()->setLocale(config("app.fallback_locale"));
@@ -200,3 +202,6 @@ Route::post("{locale}", function ($locale) {
 	}
 })->middleware(SetDefaultLocaleForUrls::class)->name("locale.setting");
 
+Route::fallback( function () {
+    abort( 404 );
+} );
