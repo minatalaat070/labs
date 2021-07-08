@@ -65,7 +65,7 @@
 					<i class="fas fa-calendar-alt mr-3"></i>
 					{{__('events')}}
 				</a>
-				<a href="{{route('dashborad_list_events')}}" class="flex items-center text-white  {{$name=="misc"?"active-nav-link":""}}  opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+				<a href="{{route('misc')}}" class="flex items-center text-white  {{$name=="misc"?"active-nav-link":""}}  opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 					<i class="fas fa-file-alt mr-3"></i>
 					{{__('misc')}}
 				</a>
