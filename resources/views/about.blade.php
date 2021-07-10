@@ -19,8 +19,8 @@
 				</svg>
 				<p {{$lang === 'ar' ? 'dir=rtl' : 'dir=ltr' }} class="leading-relaxed text-lg text-justify">{{$content}}</p>
 				<span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
-				<h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
-				<p class="text-gray-500 mb-12">Senior Product Designer</p>
+<!--				<h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
+				<p class="text-gray-500 mb-12">Senior Product Designer</p>-->
 			</div>
 		</div>
 	</section>

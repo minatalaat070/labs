@@ -2,7 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Models\Device;
+use App\Models\Event;
+use App\Models\Lab;
+use App\Models\Member;
+use App\Models\Research;
+use App\Models\Thesis;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder {
 
@@ -13,21 +21,21 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run() {
 		//\App\Models\User::factory(10)->create();
-		\App\Models\User::factory(1)->create([
+		User::factory(1)->create([
 			'name' => 'test',
 			'email' => 'test@test.com',
-			'password' => \Illuminate\Support\Facades\Hash::make('123456')
+			'password' => Hash::make('123456')
 		]);
 		
 
-//		for ($index = 0; $index < 7; $index++) {
-//			$lab = Lab::factory()->create();
-//			\App\Models\Device::factory(7)->create(['lab_id' => $lab->id]);
-//			\App\Models\Member::factory(7)->create(['lab_id' => $lab->id]);
-//			\App\Models\Thesis::factory(7)->create(['lab_id' => $lab->id]);
-//			\App\Models\Research::factory(7)->create(['lab_id' => $lab->id]);
-//			\App\Models\Event::factory(7)->create(['lab_id' => $lab->id]);
-//		}
+		for ($index = 0; $index < 7; $index++) {
+			$lab = Lab::factory()->create();
+			Device::factory(7)->create(['lab_id' => $lab->id]);
+			Member::factory(7)->create(['lab_id' => $lab->id]);
+			Thesis::factory(7)->create(['lab_id' => $lab->id]);
+			Research::factory(7)->create(['lab_id' => $lab->id]);
+			Event::factory(7)->create(['lab_id' => $lab->id]);
+		}
 	}
 
 }

@@ -34,7 +34,7 @@ class ThesisFactory extends Factory {
 			'pdf_url' => $this->faker->url(),
 			'about' => $this->faker->paragraph(), 
 			'about_ar' => $faker_ar->paragraph(),
-			'awarded_at' => $this->faker->dateTime()
+			'awarded_at' => $this->faker->year
 		];
 	}
 

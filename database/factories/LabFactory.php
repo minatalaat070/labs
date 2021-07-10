@@ -28,10 +28,10 @@ class LabFactory extends Factory {
 			'phone_number' => $this->faker->phoneNumber, 
 			'fax_number' => $this->faker->phoneNumber,
 			'email' => $this->faker->email,
-			'adress' => $this->faker->address,
+			'address' => $this->faker->address,
 			'image' => $this->faker->image(public_path("storage/uploads/images/labs"), 640, 480, null, false),
 			'about' => $this->faker->paragraph(),
-			'about_ar' => $faker_ar->paragraph(),
+			'about_ar' => $faker_ar->paragraph()
 		];
 	}
 

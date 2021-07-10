@@ -23,13 +23,14 @@ class ResearchFactory extends Factory {
 	public function definition() {
 		$faker_ar = \Faker\Factory::create('ar_SA');
 		return [
-			'name' => $this->faker->word(),
-			'name_ar' => $faker_ar->word(),
+			'title' => $this->faker->word(),
+			'title_ar' => $faker_ar->word(),
 			'lab_id' => Lab::factory(),
 			'slug' => $this->faker->unique()->slug(),
-			'publisher_name' => $this->faker->name(),
-			'publisher_name_ar' =>$faker_ar->name(),
-			'published_at' => $this->faker->dateTime(),
+			'author_name' => $this->faker->name(),
+			'author_name_ar' =>$faker_ar->name(),
+			'journal' =>$this->faker->word,
+			'published_at' => $this->faker->year,
 			'about' => $this->faker->paragraph(),
 			'about_ar' => $faker_ar->paragraph(),
 			'pdf_url' => $this->faker->url()

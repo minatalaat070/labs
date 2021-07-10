@@ -24,7 +24,7 @@ class CreateThesesTable extends Migration {
 			$table->text("supervisors_ar");
 			$table->text("about");
 			$table->text("about_ar");
-			$table->string("pdf_url",2038)->default("http://www.example.com");
+			$table->string("pdf_url",2038)->default("");
 			$table->year("awarded_at");
 			$table->timestamps();
 		});
