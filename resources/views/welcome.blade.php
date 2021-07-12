@@ -2,7 +2,7 @@
 	<section class="text-gray-600 body-font">
 		<div class="container px-5 py-24 mx-auto">
 			@php
-			$isAr=app()->getLocal() === "ar";
+			$isAr=app()->getLocale() === "ar";
 			$fileName = app()->getLocale() === "ar" ? "word_ar.txt" : "word_en.txt";
 			$path= resource_path($fileName);
 			$content="";
