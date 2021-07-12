@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run() {
 		//\App\Models\User::factory(10)->create();
-		User::factory(1)->create([
-			'name' => 'Hussein',
-			'email' => 'hus49@hotmail.com',
-			'password' => Hash::make('123456')
-		]);
+		//User::factory(1)->create([
+		//	'name' => 'Hussein',
+		//	'email' => 'hus49@hotmail.com',
+		//	'password' => Hash::make('123456')
+		//]);
 		
 
 		for ($index = 0; $index < 7; $index++) {
