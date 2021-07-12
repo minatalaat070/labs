@@ -1,12 +1,15 @@
 <x-layout>
+	@php
+    $isAr =  app()->getLocale() === "ar" ? true : false
+    @endphp
 	<section class="text-gray-600 body-font overflow-hidden">
 		<div class="container px-5 py-24 mx-auto">
 			<div class="lg:w-4/5 mx-auto flex flex-wrap">
 				<img alt="device-image" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="/storage/uploads/images/devices/{{$device->image}}">
 				<div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-					<h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{$device->name}}</h1>
+					<h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{$isAr?$device->name_ar:$device->name}}</h1>
 					<h2 class="text-sm title-font text-gray-500 tracking-widest mb-4">{{$device->created_at}}</h2>
-					<p class="leading-relaxed">{{$device->description}}</p>
+					<p class="leading-relaxed">{{$isAr?$device->description_ar:$device->decription}}</p>
 				</div>
 				<a href="/labs/{{$lab->slug}}/devices" class="text-indigo-500 inline-flex items-center mt-4">{{__('go_back')}}
 					<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
