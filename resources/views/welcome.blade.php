@@ -20,7 +20,7 @@
 			</div>
 			@if($lab)
 			<div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-				<section class= "text-gray-600 body-font">
+				<section class= "text-gray-600 body-font mx-auto">
 					<div class="container px-5 py-24 mx-auto">
 						<div class="flex flex-wrap -m-4 content-center ">
 							<div class="p-4 md:w-1/3">
