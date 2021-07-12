@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/MiscController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/en.json</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/contactus.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/routes/web.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/components/admin-dashboard-layout.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/welcome.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/about.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/misc.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/views/admin/dashboard.blade.php</file>
-            <file>file:/home/mina/laravel-projects/labs/app/Http/Controllers/DeviceController.php</file>
-            <file>file:/home/mina/laravel-projects/labs/resources/lang/ar.json</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

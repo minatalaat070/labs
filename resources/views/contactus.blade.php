@@ -40,15 +40,15 @@
 			<div class="bg-gray-100 relative flex flex-wrap py-6 rounded shadow-md w-1/2 mx-auto items-center mt-4i9">
 				<div class="lg:w-1/2 px-6">
 					<h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">{{__('address')}}</h2>
-					<p class="mt-1">Sohag, Egypt</p>
+					<p class="mt-1">Faculty of Science, Sohag University, Sohag, Egypt</p>
 					<h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">{{__('fax_number')}}</h2>
-					<p class="leading-relaxed">+123456789</p>
+					<p class="leading-relaxed">+20934601159</p>
 				</div>
 				<div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
 					<h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">{{__('email')}}</h2>
-					<a class="text-indigo-500 leading-relaxed" href="mailto:mina@mina.com">mina@mina.com</a>
+					<a class="text-indigo-500 leading-relaxed" href="mailto:research.groups.physics@gmail.com">research.groups.physics@gmail.com</a>
 					<h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">{{__('phone_number')}}</h2>
-					<p class="leading-relaxed">+123456789</p>
+					<p class="leading-relaxed">+20934570000 - Ext 2211</p>
 				</div>
 			</div>
 		</div>
