@@ -19,7 +19,7 @@
 
 				<div id="jh-stats-neutral" class="flex flex-col justify-center px-4 py-4 mt-4 bg-white border border-gray-300 rounded sm:mt-0">
 					<div>
-						<p class="text-3xl font-semibold text-center text-gray-800">{{$members_count}}</p>
+						<p class="text-3xl font-semibold text-center text-gray-800">{{$devices_count}}</p>
 						<p class="text-lg text-center text-gray-500">{{__('devices_count')}}</p>
 					</div>
 				</div>
