@@ -84,7 +84,7 @@
 									<div class="p-6">
 										<h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{__('device')}}</h2>
 										<h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$isAr?$device->name_ar:$device->name}}</h1>
-										<p class="leading-relaxed mb-3">{{substr($isAr?$device->name_ar:$device->description,0,strpos($isAr?$device->name_ar:$device->description,' ',strlen($isAr?$device->name_ar:$device->description)/3))}}</p>
+										<p class="leading-relaxed mb-3">{{substr($isAr?$device->description_ar:$device->description,0,strpos($isAr?$device->description_ar:$device->description,' ',strlen($isAr?$device->description:$device->description)/3))}}</p>
 										<div class="flex items-center flex-wrap">
 											<a href="/labs/{{$lab->slug}}/devices/{{$device->slug}}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">{{__('learn_more')}}
 												<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
